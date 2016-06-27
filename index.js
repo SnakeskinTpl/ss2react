@@ -20,7 +20,7 @@ function setParams(p) {
 	});
 }
 
-function adaptor(id, fn, text, p) {
+function template(id, fn, text, p) {
 	text = id + ' = ' + fn + (/\breturn\s+\(?\s*[{<](?!\/)/.test(text) ? '' : 'return ') + text + '};';
 
 	var opts = Object.assign({babelrc: false}, p, {
@@ -35,5 +35,13 @@ function adaptor(id, fn, text, p) {
 }
 
 exports.adaptor = function (txt, opt_params, opt_info) {
-	return snakeskin.adaptor(txt, setParams, adaptor, opt_params, opt_info);
+	return snakeskin.adaptor(txt, {
+		template: template,
+		setParams: setParams,
+		importNative: 'import React from "react";',
+		importCJS: 'typeof React === "undefined" ? require("react") : React',
+		importAMD: '"react"',
+		importGlobal: 'React',
+		local: 'React'
+	}, opt_params, opt_info);
 };
