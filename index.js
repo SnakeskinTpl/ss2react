@@ -32,6 +32,9 @@ function setParams(p) {
 
 function template(id, fn, txt, p) {
 	txt = id + ' = ' + fn + (/\breturn\s+\(?\s*[{<](?!\/)/.test(txt) ? '' : 'return ') + txt + '};';
+	p = Object.assign({}, p);
+	delete p.header;
+	delete p.footer;
 	return babel.transform(txt, p).code;
 }
 
