@@ -13,17 +13,13 @@ var
 	babel = require('babel-core');
 
 function setParams(p) {
-	return Object.assign({}, p, {
+	p = Object.assign({}, p, {
 		doctype: 'transitional',
 		literalBounds: ['{', '}'],
 		attrLiteralBounds: ['{', '}']
 	});
-}
 
-function template(id, fn, txt, p) {
-	txt = id + ' = ' + fn + (/\breturn\s+\(?\s*[{<](?!\/)/.test(txt) ? '' : 'return ') + txt + '};';
-
-	var opts = Object.assign({babelrc: false}, p, {
+	p.adaptorOptions = Object.assign({babelrc: false}, p.adaptorOptions, {
 		plugins: [
 			require('babel-plugin-syntax-jsx'),
 			require('babel-plugin-transform-react-jsx'),
@@ -31,7 +27,12 @@ function template(id, fn, txt, p) {
 		].concat(p.plugins || [])
 	});
 
-	return babel.transform(txt, opts).code;
+	return p;
+}
+
+function template(id, fn, txt, p) {
+	txt = id + ' = ' + fn + (/\breturn\s+\(?\s*[{<](?!\/)/.test(txt) ? '' : 'return ') + txt + '};';
+	return babel.transform(txt, p).code;
 }
 
 exports.adaptor = function (txt, opt_params, opt_info) {
