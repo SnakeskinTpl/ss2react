@@ -9,7 +9,7 @@ Convert [Snakeskin](https://github.com/SnakeskinTpl/Snakeskin) to [React](https:
 [![NPM devDependencies](http://img.shields.io/david/dev/SnakeskinTpl/ss2react.svg?style=flat)](https://david-dm.org/SnakeskinTpl/ss2react#info=devDependencies&view=table)
 [![NPM peerDependencies](https://david-dm.org/SnakeskinTpl/ss2react/peer-status.svg)](https://david-dm.org/SnakeskinTpl/ss2react#info=peerDependencies)
 
-## [adaptorOptions](https://babeljs.io/docs/usage/api)
+## [adapterOptions](https://babeljs.io/docs/usage/api)
 ## [License](https://github.com/SnakeskinTpl/ss2react/blob/master/LICENSE)
 
 The MIT License.
