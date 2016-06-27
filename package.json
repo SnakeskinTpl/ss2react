@@ -4,7 +4,7 @@
   "license": "MIT",
   "homepage": "https://github.com/SnakeskinTpl/ss2react",
   "main": "index.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": {
     "name": "kobezzza",
     "email": "kobezzza@mail.ru",
@@ -34,7 +34,7 @@
     "babel-plugin-transform-react-jsx": "^6.8.0",
     "eslint": "^2.13.1",
     "gulp": "^3.9.0",
-    "snakeskin": "^7.1.6"
+    "snakeskin": "^7.1.9"
   },
   "peerDependencies": {
     "babel-core": "*",
@@ -42,7 +42,7 @@
     "babel-plugin-transform-react-display-name": "*",
     "babel-plugin-transform-react-jsx": "*",
     "gulp": "*",
-    "snakeskin": "^7.1.6"
+    "snakeskin": "^7.1.9"
   },
   "dependencies": {
     "core-js": "^2.4.0"

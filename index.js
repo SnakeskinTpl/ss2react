@@ -19,7 +19,7 @@ function setParams(p) {
 		attrLiteralBounds: ['{', '}']
 	});
 
-	p.adaptorOptions = Object.assign({babelrc: false}, p.adaptorOptions, {
+	p.adapterOptions = Object.assign({babelrc: false}, p.adapterOptions, {
 		plugins: [
 			require('babel-plugin-syntax-jsx'),
 			require('babel-plugin-transform-react-jsx'),
@@ -38,8 +38,8 @@ function template(id, fn, txt, p) {
 	return babel.transform(txt, p).code;
 }
 
-exports.adaptor = function (txt, opt_params, opt_info) {
-	return snakeskin.adaptor(txt, {
+exports.adapter = function (txt, opt_params, opt_info) {
+	return snakeskin.adapter(txt, {
 		template: template,
 		setParams: setParams,
 		importNative: 'import React from "react";',
