@@ -20,8 +20,8 @@ function setParams(p) {
 	});
 }
 
-function template(id, fn, text, p) {
-	text = id + ' = ' + fn + (/\breturn\s+\(?\s*[{<](?!\/)/.test(text) ? '' : 'return ') + text + '};';
+function template(id, fn, txt, p) {
+	txt = id + ' = ' + fn + (/\breturn\s+\(?\s*[{<](?!\/)/.test(txt) ? '' : 'return ') + txt + '};';
 
 	var opts = Object.assign({babelrc: false}, p, {
 		plugins: [
@@ -31,7 +31,7 @@ function template(id, fn, text, p) {
 		].concat(p.plugins || [])
 	});
 
-	return babel.transform(text, opts).code;
+	return babel.transform(txt, opts).code;
 }
 
 exports.adaptor = function (txt, opt_params, opt_info) {
