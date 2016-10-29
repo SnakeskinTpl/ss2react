@@ -29,6 +29,7 @@
   ],
   "devDependencies": {
     "babel-core": "^6.10.4",
+    "babel-eslint": "^7.1.0",
     "babel-plugin-syntax-jsx": "^6.8.0",
     "babel-plugin-transform-react-display-name": "^6.8.0",
     "babel-plugin-transform-react-jsx": "^6.8.0",
@@ -41,8 +42,5 @@
     "babel-plugin-transform-react-display-name": "*",
     "babel-plugin-transform-react-jsx": "*",
     "snakeskin": "^7.1.9"
-  },
-  "dependencies": {
-    "babel-eslint": "^7.1.0"
   }
 }
