@@ -1,3 +1,5 @@
+'use strict';
+
 /*!
  * ss2react
  * https://github.com/SnakeskinTpl/ss2react
@@ -6,9 +8,7 @@
  * https://github.com/SnakeskinTpl/ss2react/blob/master/LICENSE
  */
 
-require('core-js');
-
-var
+const
 	snakeskin = require('snakeskin'),
 	babel = require('babel-core');
 
@@ -31,7 +31,7 @@ function setParams(p) {
 }
 
 function template(id, fn, txt, p) {
-	txt = id + ' = ' + fn + (/\breturn\s+\(?\s*[{<](?!\/)/.test(txt) ? '' : 'return ') + txt + '};';
+	txt = `${id} = ${fn + (/\breturn\s+\(?\s*[{<](?!\/)/.test(txt) ? '' : 'return ') + txt}};`;
 	p = Object.assign({}, p);
 	delete p.header;
 	delete p.footer;
@@ -40,8 +40,8 @@ function template(id, fn, txt, p) {
 
 exports.adapter = function (txt, opt_params, opt_info) {
 	return snakeskin.adapter(txt, {
-		template: template,
-		setParams: setParams,
+		template,
+		setParams,
 		importNative: 'import React from "react";',
 		importCJS: 'typeof React === "undefined" ? require("react") : React',
 		importAMD: '"react"',
